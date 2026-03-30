@@ -21,7 +21,7 @@ export default function MarqueeTicker() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 1.5 }}
-      className="w-full overflow-hidden py-8"
+      className="w-full overflow-hidden py-3 sm:py-5"
     >
       <div className="relative">
         {/* Gradient fade edges */}
@@ -33,10 +33,10 @@ export default function MarqueeTicker() {
           {duplicatedServices.map((service, index) => (
             <span
               key={index}
-              className="flex items-center mx-4 text-sm md:text-base font-body font-light tracking-wide"
+              className="flex items-center mx-2 sm:mx-4 text-[11px] sm:text-sm font-body font-light tracking-wide"
             >
               <span className="text-white/60 uppercase">{service}</span>
-              <span className="mx-4 text-magenta text-lg">→</span>
+              <span className="mx-2 sm:mx-4 text-magenta text-sm sm:text-lg">→</span>
             </span>
           ))}
         </div>

@@ -43,7 +43,7 @@ export default function HeroContent() {
   }
 
   return (
-    <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-12">
+    <div className="relative z-10 flex flex-col items-center justify-center h-screen overflow-hidden px-4 sm:px-6">
       {/* Sweep line */}
       <motion.div
         initial={{ x: '-100%', opacity: 0 }}
@@ -58,7 +58,7 @@ export default function HeroContent() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="text-xs md:text-sm tracking-[0.3em] text-white/40 uppercase font-body font-light mb-8"
+        className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] text-white/40 uppercase font-body font-light mb-3 sm:mb-5"
       >
         Algo grande está chegando
       </motion.p>
@@ -68,13 +68,13 @@ export default function HeroContent() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="font-display text-center leading-[0.9] mb-8"
+        className="font-display text-center leading-[0.85] mb-3 sm:mb-5"
       >
         {headlineWords.map((word, index) => (
           <motion.span
             key={index}
             variants={wordVariants}
-            className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
+            className="block text-[11vw] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
             style={{
               color: index === 1 ? '#FF2D78' : 'white',
             }}
@@ -89,7 +89,7 @@ export default function HeroContent() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="text-center font-body font-light text-white/50 text-sm md:text-base lg:text-lg max-w-md mb-2"
+        className="text-center font-body font-light text-white/50 text-xs sm:text-sm lg:text-base max-w-md mb-1"
       >
         Design. Desenvolvimento. Mídia. Conteúdo. Estratégia.
       </motion.p>
@@ -97,7 +97,7 @@ export default function HeroContent() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.3 }}
-        className="text-center font-body font-light text-white/40 text-sm md:text-base mb-10"
+        className="text-center font-body font-light text-white/40 text-[11px] sm:text-sm mb-4 sm:mb-6"
       >
         Um time. Possibilidades infinitas.
       </motion.p>
@@ -112,14 +112,14 @@ export default function HeroContent() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.8 }}
-        className="w-full max-w-md mt-6"
+        className="w-full max-w-md mt-2 sm:mt-4"
       >
         <AnimatePresence mode="wait">
           {!isSubmitted ? (
             <motion.form
               key="form"
               onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-3"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-3"
               exit={{ opacity: 0, y: -20 }}
             >
               <input
@@ -130,7 +130,7 @@ export default function HeroContent() {
                 onBlur={() => setIsFocused(false)}
                 placeholder="Deixe seu email e seja a primeira a saber"
                 required
-                className="flex-1 px-5 py-4 rounded-lg font-body text-sm text-white placeholder-white/40 outline-none transition-all duration-300"
+                className="flex-1 px-4 py-3 sm:py-3.5 rounded-lg font-body text-xs sm:text-sm text-white placeholder-white/40 outline-none transition-all duration-300"
                 style={{
                   background: 'rgba(255,255,255,0.05)',
                   border: `1px solid ${isFocused ? '#FF2D78' : 'rgba(255,255,255,0.15)'}`,
@@ -140,7 +140,7 @@ export default function HeroContent() {
                 type="submit"
                 whileHover={{ scale: 1.03, filter: 'brightness(1.1)' }}
                 whileTap={{ scale: 0.98 }}
-                className="px-6 py-4 bg-magenta text-white font-body font-medium text-sm uppercase tracking-wider rounded-lg transition-all duration-300 whitespace-nowrap"
+                className="px-5 py-3 sm:py-3.5 bg-magenta text-white font-body font-medium text-xs sm:text-sm uppercase tracking-wider rounded-lg transition-all duration-300 whitespace-nowrap"
               >
                 Avise-me →
               </motion.button>
@@ -150,20 +150,20 @@ export default function HeroContent() {
               key="success"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center gap-4 py-4"
+              className="flex flex-col items-center gap-2 py-2"
             >
               {/* Animated checkmark */}
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                className="w-16 h-16 rounded-full bg-magenta/20 flex items-center justify-center"
+                className="w-12 h-12 rounded-full bg-magenta/20 flex items-center justify-center"
               >
                 <motion.svg
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="w-8 h-8 text-magenta"
+                  className="w-6 h-6 text-magenta"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -179,7 +179,7 @@ export default function HeroContent() {
                   />
                 </motion.svg>
               </motion.div>
-              <p className="text-white/70 font-body text-center">
+              <p className="text-white/70 font-body text-sm text-center">
                 Você está na lista. <span className="text-magenta">Nos vemos em breve.</span>
               </p>
             </motion.div>
@@ -187,25 +187,28 @@ export default function HeroContent() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Bottom social proof line */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.2 }}
-        className="mt-16 text-center font-body text-xs md:text-sm text-white/30 tracking-wide"
-      >
-        Feito por mulheres. Movido por estratégia. Prontas para transformar o seu negócio.
-      </motion.p>
+      {/* Bottom section */}
+      <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex flex-col items-center">
+        {/* Bottom social proof line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 2.2 }}
+          className="text-center font-body text-[10px] sm:text-xs text-white/30 tracking-wide px-4"
+        >
+          Feito por mulheres. Movido por estratégia. Prontas para transformar o seu negócio.
+        </motion.p>
 
-      {/* Studio name placeholder */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.4 }}
-        className="mt-8 font-display text-lg tracking-[0.2em] text-white/20"
-      >
-        [STUDIO]
-      </motion.p>
+        {/* Studio name placeholder */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 2.4 }}
+          className="mt-2 sm:mt-3 font-display text-sm sm:text-base tracking-[0.2em] text-white/20"
+        >
+          [STUDIO]
+        </motion.p>
+      </div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import HeroContent from './components/HeroContent'
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-dark overflow-hidden">
+    <div className="relative h-screen bg-dark overflow-hidden">
       {/* Animated particle background */}
       <ParticleCanvas />
 
